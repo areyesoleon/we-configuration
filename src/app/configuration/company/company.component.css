@@ -1,0 +1,7 @@
+#card {
+  margin: 0.25rem
+}
+#card #title {
+  display: flex;
+  font-size: 2rem;
+}
