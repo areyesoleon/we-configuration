@@ -14,8 +14,8 @@ export class CompanyComponent implements OnInit {
 
   constructor(
     public _cs: CompanyService
-  ) { 
-    if(true){
+  ) {
+    if (true) {
       this.title = 'Nuevo lugar';
     } else {
       this.title = 'Editando lugar';
@@ -25,10 +25,21 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveCompany(company : Company) {
+  saveCompany(company: Company) {
     this._cs.saveCompany(company)
-    .subscribe((company) => {
-    });
+      .subscribe((company) => {
+      });
+  }
+
+  clearCompany() {
+    this.company.name = "";
+  }
+
+  saveMoreCompany(company: Company) {
+    this._cs.saveCompany(company)
+      .subscribe(() => {
+        this.clearCompany();
+      });
   }
 
 }

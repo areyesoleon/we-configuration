@@ -26,10 +26,10 @@
       <button type="button" mat-fab color="primary" matTooltip="Guardar" (click)="saveCompany(company)">
         <mat-icon>save</mat-icon>
       </button>
-      <button mat-fab matTooltip="Guardar y nuevo">
+      <button mat-fab matTooltip="Guardar y nuevo" (click)="saveMoreCompany(company)">
         <mat-icon>add_circle</mat-icon>
       </button>
-      <button mat-fab color="warn" matTooltip="Limpiar">
+      <button mat-fab color="warn" matTooltip="Limpiar" (click)="clearCompany()">
         <mat-icon>clear</mat-icon>
       </button>
     </mat-card-actions>
