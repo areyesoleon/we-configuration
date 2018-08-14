@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from '../../services/services.index';
+import { Company } from '../../models/company.model';
 
 @Component({
   selector: 'app-company',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor() { }
+  public company: Company = new Company('', true, '');
+  public title: string;
+
+  constructor(
+    public _cs: CompanyService
+  ) { 
+    if(true){
+      this.title = 'Nuevo lugar';
+    } else {
+      this.title = 'Editando lugar';
+    }
+  }
 
   ngOnInit() {
+  }
+
+  saveCompany(company : Company) {
+    this._cs.saveCompany(company)
+    .subscribe((company) => {
+    });
   }
 
 }

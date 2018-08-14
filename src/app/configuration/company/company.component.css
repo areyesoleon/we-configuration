@@ -1,7 +1,21 @@
 #card {
-  margin: 0.25rem
+  margin: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #card #title {
   display: flex;
   font-size: 2rem;
+}
+
+#card #actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+#card form {
+  display: flex;
+  flex-direction: column;
 }
