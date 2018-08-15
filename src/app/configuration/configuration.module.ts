@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     ServicesModule,
     FormsModule
   ],
+  providers:[],
   declarations: [StartComponent, RoutesComponent, CompanyComponent, UserComponent],
   exports: [RoutesComponent]
 })

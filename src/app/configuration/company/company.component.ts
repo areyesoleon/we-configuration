@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyService } from '../../services/services.index';
+import { CompanyService } from '../../services/company/company.service';
 import { Company } from '../../models/company.model';
 
 @Component({
@@ -15,11 +15,7 @@ export class CompanyComponent implements OnInit {
   constructor(
     public _cs: CompanyService
   ) {
-    if (true) {
-      this.title = 'Nuevo lugar';
-    } else {
-      this.title = 'Editando lugar';
-    }
+   this.title = "Nuevo lugar";
   }
 
   ngOnInit() {

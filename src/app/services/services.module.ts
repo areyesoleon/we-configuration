@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompanyService } from './services.index';
+import { CompanyService } from './company/company.service';
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
