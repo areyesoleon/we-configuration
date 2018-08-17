@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   public title: string;
   public isNew: boolean;
   private service: string;
+  public hide: boolean = false;
 
   constructor(
     public _us: UserService,

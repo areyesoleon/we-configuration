@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { URL_SERVICIOS } from '../../config/config';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
+import { Observable } from "rxjs";
 import { User } from '../../models/user.model';
 import { map } from 'rxjs/operators';
 
