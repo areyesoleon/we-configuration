@@ -4,8 +4,6 @@ import { Company } from '../../models/company.model';
 import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
-import { isNil } from 'lodash';
-import swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material';
 @Injectable()
 export class CompanyService {
