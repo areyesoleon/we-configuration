@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../services/company/company.service';
 import { Company } from '../../models/company.model';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { isNil } from 'lodash';
 
 @Component({
