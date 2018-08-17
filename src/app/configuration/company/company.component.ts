@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../services/company/company.service';
 import { Company } from '../../models/company.model';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { isNil } from 'lodash';
 
 @Component({
   selector: 'app-company',
@@ -11,18 +13,30 @@ export class CompanyComponent implements OnInit {
 
   public company: Company = new Company('', true, '');
   public title: string;
+  private service: string;
 
   constructor(
-    public _cs: CompanyService
+    public _cs: CompanyService,
+    public activateRoute: ActivatedRoute
   ) {
-   this.title = "Nuevo lugar";
+    activateRoute.params.subscribe((params) => {
+      if (isNil(params['id'])) {
+        this.title = "Nuevo lugar";
+        this.service = 'saveCompany';
+      } else {
+        this.title = "Editando lugar";
+        this.loadCompany(params['id']);
+        this.service = 'updateCompany';
+      }
+    })
+
   }
 
   ngOnInit() {
   }
 
   saveCompany(company: Company) {
-    this._cs.saveCompany(company)
+    this._cs[this.service](company)
       .subscribe((company) => {
       });
   }
@@ -36,6 +50,13 @@ export class CompanyComponent implements OnInit {
       .subscribe(() => {
         this.clearCompany();
       });
+  }
+
+  loadCompany(id: string) {
+    this._cs.loadCompany(id)
+      .subscribe((company: any) => {
+        this.company = company
+      })
   }
 
 }
