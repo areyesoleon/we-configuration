@@ -13,6 +13,7 @@ export class CompanyComponent implements OnInit {
 
   public company: Company = new Company('', true, '');
   public title: string;
+  public isNew: boolean;
   private service: string;
 
   constructor(
@@ -21,9 +22,11 @@ export class CompanyComponent implements OnInit {
   ) {
     activateRoute.params.subscribe((params) => {
       if (isNil(params['id'])) {
+        this.isNew = true;
         this.title = "Nuevo lugar";
         this.service = 'saveCompany';
       } else {
+        this.isNew = false;
         this.title = "Editando lugar";
         this.loadCompany(params['id']);
         this.service = 'updateCompany';
