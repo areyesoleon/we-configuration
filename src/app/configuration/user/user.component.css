@@ -1,0 +1,36 @@
+#card {
+  margin: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#card #title {
+  display: flex;
+  font-size: 2rem;
+  width: 100%;
+}
+
+#content {
+  width: 100%;
+}
+
+#card form {
+  display: flex;
+  flex-direction: column;
+}
+
+form #state {
+  display: flex;
+  flex-direction: column;
+}
+
+#actions {
+  width: 100%
+}
+
+#card #actions {
+  display: flex;
+  justify-content: space-between;
+}
