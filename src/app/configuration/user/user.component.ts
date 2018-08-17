@@ -43,4 +43,17 @@ export class UserComponent implements OnInit {
       });
   }
 
+  saveMoreUser(user: User) {
+    this._us.saveUser(user)
+      .subscribe(() => {
+        this.cleanUser();
+      });
+  }
+
+  cleanUser(){
+    this.user.name = '';
+    this.user.email = '';
+    this.user.password = '';
+  }
+
 }
