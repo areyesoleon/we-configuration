@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { ServicesModule } from '../services/services.module';
 import { FormsModule } from '@angular/forms';
 import { CompanyListComponent } from './company-list/company-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -21,7 +22,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
     FormsModule
   ],
   providers:[],
-  declarations: [StartComponent, RoutesComponent, CompanyComponent, UserComponent, CompanyListComponent],
+  declarations: [StartComponent, RoutesComponent, CompanyComponent, UserComponent, CompanyListComponent, UserListComponent],
   exports: [RoutesComponent]
 })
 export class ConfigurationModule { }
