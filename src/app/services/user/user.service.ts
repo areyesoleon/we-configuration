@@ -35,14 +35,15 @@ export class UserService {
   }
 
   loadUser(id: string) {
-    this.http.get(this.url + '/' + id)
+    return this.http.get(this.url + '/' + id)
       .pipe(map((resp: any) => {
         return resp.user;
       }))
   }
 
   updateUser(user: User) {
-    this.http.put(this.url + '/' + user._id, user)
+    delete user.password;
+    return this.http.put(this.url + '/' + user._id, user)
       .pipe(map((resp: any) => {
         this.snackBar.open('Usuario' + user.name, 'Actualizado', {
           duration: 3000

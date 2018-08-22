@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
       } else {
         this.isNew = false;
         this.title = "Editando usuario";
-        // this.loadCompany(params['id']);
+        this.loadCompany(params['id']);
         this.service = 'updateUser';
       }
     });
@@ -55,6 +55,13 @@ export class UserComponent implements OnInit {
     this.user.name = '';
     this.user.email = '';
     this.user.password = '';
+  }
+
+  loadCompany (id: string){
+    this._us.loadUser(id)
+    .subscribe((user) => {
+      this.user = user;
+    })
   }
 
 }

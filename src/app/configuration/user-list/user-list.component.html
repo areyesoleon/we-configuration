@@ -1,0 +1,32 @@
+<mat-card id="card">
+  <mat-card-header id="title">
+    <div>
+      <mat-icon inline="true" color="primary">supervised_user_circle</mat-icon>
+    </div>
+    <div>
+      Lista usuarios
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="filter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="tableUser">
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> No </th>
+        <td mat-cell *matCellDef="let index = index"> {{index +1 }} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Activo </th>
+        <td mat-cell *matCellDef="let element">{{element.state ? 'Si': 'No'}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="rowUser" mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/config/user', row._id]"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </mat-card-content>
+</mat-card>
